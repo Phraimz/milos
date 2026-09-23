@@ -126,6 +126,8 @@
       margin-top:34px;
     }
     .enter {
+      display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none;
       appearance:none; border:1px solid rgba(255,255,255,.75);
       background:rgba(255,255,255,.96); color:#111;
       padding:15px 24px; min-width:190px;
@@ -237,7 +239,7 @@
       </div>
 
       <div class="actions">
-        <button class="enter" id="enterBtn">Enter Experience</button>
+        <a class="enter" id="enterBtn" href="./tour.html">Enter Experience</a>
         <div class="hint">Drag to look · Scroll to zoom · Explore the space</div>
       </div>
     </div>
@@ -260,21 +262,6 @@
     <div class="tour-chip">Milos · Virtual Tour · Phraimz Concepts</div>
   </div>
 
-  <script type="text/javascript">
-			(function () {
-				var overlay = document.getElementById('experience-overlay');
-				var enter = document.getElementById('enter-experience');
-				var loading = document.getElementById('experience-loading');
-				enter.addEventListener('click', function () {
-					overlay.classList.add('is-hidden');
-					setTimeout(function () { overlay.remove(); }, 800);
-				});
-				window.addEventListener('load', function () {
-					setTimeout(function () { loading.classList.add('done'); }, 900);
-				});
-			})();
-		</script>
-
   <script>
     const intro = document.getElementById('intro');
     const loading = document.getElementById('loading');
@@ -295,14 +282,9 @@
     }, 6500);
 
     enterBtn.addEventListener('click', () => {
-      if (entered) return;
       entered = true;
       loading.classList.add('show');
-
-      // Open the actual Pano2VR tour page.
-      setTimeout(() => {
-        window.location.href = 'tour.html';
-      }, 500);
+      // Navigation is handled by the anchor itself.
     });
   </script>
 </body>
