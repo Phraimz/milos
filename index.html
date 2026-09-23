@@ -299,14 +299,10 @@
       entered = true;
       loading.classList.add('show');
 
-      // Give the Pano2VR player a moment to take over before removing the intro.
+      // Open the actual Pano2VR tour page.
       setTimeout(() => {
-        intro.classList.add('hidden');
-        setTimeout(() => {
-          loading.classList.remove('show');
-          tourUI.classList.add('visible');
-        }, 700);
-      }, 900);
+        window.location.href = 'tour.html';
+      }, 500);
     });
   </script>
 </body>
