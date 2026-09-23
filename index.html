@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MILOS — </title>
+  <title>MILOS — Phraimz Concepts</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#090909">
-  <meta property="og:title" content="MILOS — ">
-  <meta property="og:description" content="An independent interactive visualization study inspired by MILOS Residences by Karma Developers, Dubai.">
+  <meta property="og:title" content="MILOS — Phraimz Concepts">
+  <meta property="og:description" content="An interactive architectural visualization experience by Phraimz Concepts, inspired by MILOS Residences by Karma Developers, Dubai.">
   <style>
     :root {
       --bg: #090909;
@@ -79,10 +79,6 @@
       font-size:11px; letter-spacing:.18em; text-transform:uppercase;
     }
     .brand { font-weight:600; }
-    .study-label {
-      color:rgba(255,255,255,.66);
-      text-align:right;
-    }
 
     .content {
       position:relative; z-index:4;
@@ -200,7 +196,6 @@
 
     @media (max-width:700px) {
       .topbar { padding:20px; }
-      .study-label { display:none; }
       #intro { padding:28px 22px 54px; }
       h1 { font-size:72px; }
       .subtitle { font-size:15px; max-width:300px; }
@@ -213,69 +208,71 @@
 <style>
 .contact-footer{
   position:fixed;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
+  top:22px;
+  right:clamp(20px, 3vw, 42px);
   z-index:2147483647;
-  display:block;
-  width:max-content;
-  max-width:calc(100vw - 28px);
-  padding:10px 18px 11px;
-  text-align:center;
-  color:#fff;
   font-family:Inter,Arial,sans-serif;
+  color:#fff;
   pointer-events:auto;
-  background:rgba(8,8,8,.78);
-  border:1px solid rgba(255,255,255,.28);
+}
+.contact-toggle{
+  appearance:none;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(8,8,8,.16);
+  color:rgba(255,255,255,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
   border-radius:999px;
-  box-shadow:0 8px 30px rgba(0,0,0,.45);
+  padding:10px 15px;
+  font:600 9px/1 Inter,Arial,sans-serif;
+  letter-spacing:.22em;
+  cursor:pointer;
+  box-shadow:0 6px 24px rgba(0,0,0,.16);
+  transition:background .25s ease,border-color .25s ease,transform .25s ease;
+}
+.contact-toggle:hover,.contact-toggle:focus-visible{
+  background:rgba(8,8,8,.28);
+  border-color:rgba(255,255,255,.25);
+  outline:none;
+  transform:translateY(-1px);
+}
+.contact-panel{
+  position:absolute;
+  top:calc(100% + 8px);
+  right:0;
+  width:270px;
+  max-width:calc(100vw - 28px);
+  padding:15px 16px 16px;
+  text-align:right;
+  background:rgba(8,8,8,.24);
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:16px;
+  box-shadow:0 14px 40px rgba(0,0,0,.25);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-  white-space:nowrap;
+  opacity:0;
+  transform:translateY(-8px) scale(.98);
+  transform-origin:top right;
+  pointer-events:none;
+  transition:opacity .28s ease,transform .28s ease;
 }
-.contact-footer .contact-brand{
-  font-size:10px;
-  letter-spacing:.24em;
-  font-weight:700;
-  color:#fff;
-  margin-bottom:4px;
+.contact-footer.is-open .contact-panel{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  pointer-events:auto;
 }
-.contact-footer .contact-subtitle{
-  font-size:9px;
-  letter-spacing:.08em;
-  color:rgba(255,255,255,.72);
-  margin-bottom:6px;
+.contact-footer.is-open .contact-toggle{
+  background:rgba(8,8,8,.28);
+  border-color:rgba(255,255,255,.22);
 }
-.contact-footer .contact-details{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  font-size:10px;
-  letter-spacing:.02em;
-}
-.contact-footer a{
-  color:#fff;
-  text-decoration:none;
-  transition:opacity .2s ease;
-}
-.contact-footer a:hover,.contact-footer a:focus-visible{
-  opacity:.7;
-  outline:none;
-}
+.contact-brand{font-size:9px;letter-spacing:.22em;font-weight:700;color:rgba(255,255,255,.92);margin-bottom:4px}
+.contact-subtitle{font-size:8px;letter-spacing:.06em;color:rgba(255,255,255,.55);margin-bottom:10px}
+.contact-details{display:flex;flex-direction:column;gap:5px;font-size:9px;letter-spacing:.02em}
+.contact-details a{color:rgba(255,255,255,.82);text-decoration:none;transition:color .2s ease,opacity .2s ease}
+.contact-details a:hover,.contact-details a:focus-visible{color:#fff;opacity:1;outline:none}
 @media(max-width:600px){
-  .contact-footer{
-    bottom:10px;
-    width:calc(100vw - 24px);
-    max-width:none;
-    white-space:normal;
-    border-radius:14px;
-    padding:9px 12px 10px;
-  }
-  .contact-footer .contact-details{
-    flex-wrap:wrap;
-    line-height:1.5;
-  }
+  .contact-footer{top:14px;right:14px}
+  .contact-panel{width:245px}
 }
 </style>
 </head>
@@ -293,7 +290,6 @@
 
     <div class="topbar">
       <div class="brand">Phraimz Concepts</div>
-      <div class="study-label">Independent Visualization Study</div>
     </div>
 
     <div class="content">
@@ -318,7 +314,17 @@
     </div>
   </section>
 
-  <footer class="contact-footer" aria-label="Phraimz Concepts contact information"><div class="contact-brand">PHRAIMZ CONCEPTS</div><div class="contact-subtitle">Interactive Architectural Visualization</div><div class="contact-details"><a href="tel:+2347066456141">+234 706 645 6141</a><span aria-hidden="true">·</span><a href="mailto:ephraimikwueze@gmail.com">ephraimikwueze@gmail.com</a></div></footer>
+  <div class="contact-footer" id="contactWidget">
+  <button class="contact-toggle" id="contactToggle" type="button" aria-expanded="false" aria-controls="contactPanel">CONTACT</button>
+  <div class="contact-panel" id="contactPanel" aria-hidden="true">
+    <div class="contact-brand">PHRAIMZ CONCEPTS</div>
+    <div class="contact-subtitle">Interactive Architectural Visualization</div>
+    <div class="contact-details">
+      <a href="tel:+2347066456141">+234 706 645 6141</a>
+      <a href="mailto:ephraimikwueze@gmail.com">ephraimikwueze@gmail.com</a>
+    </div>
+  </div>
+</div>
 
   <div id="loading">
     <div class="loading-inner">
@@ -333,6 +339,25 @@
   </div>
 
   <script>
+    const contactWidget = document.getElementById('contactWidget');
+    const contactToggle = document.getElementById('contactToggle');
+    const contactPanel = document.getElementById('contactPanel');
+
+    contactToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = contactWidget.classList.toggle('is-open');
+      contactToggle.setAttribute('aria-expanded', String(open));
+      contactPanel.setAttribute('aria-hidden', String(!open));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!contactWidget.contains(e.target)) {
+        contactWidget.classList.remove('is-open');
+        contactToggle.setAttribute('aria-expanded', 'false');
+        contactPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+
     const intro = document.getElementById('intro');
     const loading = document.getElementById('loading');
     const enterBtn = document.getElementById('enterBtn');
